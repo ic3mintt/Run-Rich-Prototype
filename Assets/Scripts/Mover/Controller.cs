@@ -16,7 +16,7 @@ namespace Mover
         public void AllowMoveFromStart()
         {
             _model.IsAllowedToMove = true;
-            _rigidbody.transform.position = _model.StartPosition;
+            _rigidbody.transform.SetPositionAndRotation(_model.StartPosition, Quaternion.Euler(_model.StartEulerAngles));
         }
 
         public void Move(float deltaTime)
@@ -34,8 +34,6 @@ namespace Mover
 
         public void TurnTo(Quaternion target, float deltaTime)
         {
-            if(!_model.IsAllowedToMove)
-                return;
             _rigidbody.transform.rotation = Quaternion.RotateTowards(_rigidbody.transform.rotation, target, _model.RotationSpeed * deltaTime);
         }
 

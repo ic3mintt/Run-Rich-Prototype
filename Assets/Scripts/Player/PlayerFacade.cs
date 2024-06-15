@@ -7,9 +7,10 @@ namespace Player
 {
     public class PlayerFacade : MonoBehaviour
     {
-        [SerializeField] private InputHandler inputHandler;
-        [SerializeField] private Mover.Model moverModel;
-        [SerializeField] private Wallet.View wallet;
+        [SerializeField] private InputHandler _inputHandler;
+        [SerializeField] private Mover.Model _moverModel;
+        [SerializeField] private Wallet.View _wallet;
+        [SerializeField] private AudioSource _audioSource;
 
         private Wallet.State lastState;
         
@@ -19,7 +20,7 @@ namespace Player
 
         private void Awake()
         {
-            _movable = new Mover.Controller(moverModel);
+            _movable = new Mover.Controller(_moverModel);
             var skinChanger = GetComponentInChildren<SkinChanger.SkinChanger>();
             if (skinChanger != null)
             {
@@ -31,21 +32,21 @@ namespace Player
         //start _movable.GoZ();
         private void OnEnable()
         {
-            inputHandler.OnStepChange += _movable.MoveHorizontal;
-            wallet.Model.OnStateChanged += _skinChangable.ChangeSkinByWalletState;
+            _inputHandler.OnStepChange += _movable.MoveHorizontal;
+            _wallet.Model.OnStateChanged += _skinChangable.ChangeSkinByWalletState;
         }
 
         private void OnDisable()
         {
-            inputHandler.OnStepChange -= _movable.MoveHorizontal;
-            wallet.Model.OnStateChanged -= _skinChangable.ChangeSkinByWalletState;
+            _inputHandler.OnStepChange -= _movable.MoveHorizontal;
+            _wallet.Model.OnStateChanged -= _skinChangable.ChangeSkinByWalletState;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out IMoneyPickable moneyPickable))
             {
-                wallet.Add(moneyPickable.Pick(transform));
+                _wallet.Add(moneyPickable.Pick(transform));
             }
         }
 
@@ -62,12 +63,13 @@ namespace Player
         public void Stop()
         {
             _movable.Stop();
+            _audioSource.Stop();
         }
 
         public void MoveFromStart()
         {
-            moverModel.IsAllowedToMove = true;
-            
+            _movable.AllowMoveFromStart();
+            _audioSource.Play();
         }
 
         private IEnumerator Turn(Quaternion target)

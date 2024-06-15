@@ -12,5 +12,6 @@ namespace Mover
         public float RotationSpeed = 1f;
         public bool IsAllowedToMove = false;
         public Vector3 StartPosition = new (0, 0, -8.68f);
+        public Vector3 StartEulerAngles = Vector3.zero;
     }
 }

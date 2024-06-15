@@ -4,6 +4,7 @@ namespace Mover
 {
     public interface IMovable
     {
+        public void AllowMoveFromStart();
         public void Move(float deltaTime);
 
         public void Stop();

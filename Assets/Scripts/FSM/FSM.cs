@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace FSM
 {
@@ -12,7 +12,7 @@ namespace FSM
 
         private BaseState currentState;
 
-        private void Awake()
+        private void Start()
         {
             currentState = _statesModel.startState;
             currentState.Enter(_playerFacade);
@@ -21,6 +21,12 @@ namespace FSM
         public void ChangeState(State nextState)
         {
             currentState.Exit(_playerFacade);
+
+            if (nextState.Equals(State.Start))
+            {
+                Debug.Log("Reload");
+                SceneManager.LoadScene(0);
+            }
             
             //Change state to next one
             currentState = _statesModel.States.First(state => state.State.Equals(nextState));
