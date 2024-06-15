@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     [Serializable]
-    public class WalletState: BaseState
+    public class GameplayState: BaseState
     {
         [SerializeField] private Wallet.View _view;
 

@@ -12,7 +12,7 @@ namespace MoneyPickable
             //apply effect
             //Play death animation
             //stop walk
-            _audioSource.PlayOneShot(_audioClip);
+            AudioSource.PlayOneShot(AudioClip);
             return new PickedData(Money);
         }
     }

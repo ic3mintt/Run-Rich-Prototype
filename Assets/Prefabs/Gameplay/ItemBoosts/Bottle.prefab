@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Money: -20
-  _audioClip: {fileID: 8300000, guid: 913a2c17ff99a024f8837d3fa710bc58, type: 3}
-  _audioSource: {fileID: 2372693382475068277}
+  AudioClip: {fileID: 8300000, guid: 913a2c17ff99a024f8837d3fa710bc58, type: 3}
+  AudioSource: {fileID: 2372693382475068277}
+  _instantiatePatent: {fileID: 0}
+  _bonusShowerPrefab: {fileID: 0}
 --- !u!65 &7841396586099277528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82,7 +84,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

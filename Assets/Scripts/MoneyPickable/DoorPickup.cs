@@ -21,7 +21,7 @@ namespace MoneyPickable
         public override PickedData Pick(Transform target)
         {
             _animator.SetTrigger(OPEN);
-            _audioSource.PlayOneShot(_audioClip);
+            AudioSource.PlayOneShot(AudioClip);
             return new PickedData(0, multiplicationFactor);
         }
     }

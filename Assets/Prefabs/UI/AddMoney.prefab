@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 220181921446936885}
   - component: {fileID: 8332085413430338419}
+  - component: {fileID: 4676156938145779301}
   m_Layer: 5
   m_Name: AddMoney
   m_TagString: Untagged
@@ -64,6 +65,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4676156938145779301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3009781869091592081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1482fd53da74c3c92068d924902e283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tmp: {fileID: 2722128856654566759}
+  minScale: {x: 1, y: 1, z: 1}
+  maxScale: {x: 1.5, y: 1.5, z: 1.5}
+  scaleStep: 1
+  moveStep: 100
 --- !u!1 &4266079142777753946
 GameObject:
   m_ObjectHideFlags: 0
